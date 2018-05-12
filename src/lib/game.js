@@ -269,3 +269,6 @@ export const wordList = [
 export const randomWord = () => {
   return wordList[Math.floor(Math.random() * wordList.length)]
 }
+
+export const LettersList = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w',
+  'x', 'y', 'z'];

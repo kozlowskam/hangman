@@ -1,0 +1,15 @@
+h1.Title {
+  font-family: 'Arial';
+  font-size: 31px;
+  text-align: center;
+  color: black;
+
+}
+
+h2.Title {
+  font-family: 'Arial';
+  font-size: 27px;
+  text-align: center;
+  color: blue;
+
+}

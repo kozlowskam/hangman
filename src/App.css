@@ -1,21 +1,50 @@
+body {
+  font-family: 'Arial';
+  margin: 0;
+}
+
 .App {
   text-align: center;
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+  height: 50px;
 }
 
 .App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+  background-color: #33ff00;
+  height: 100px;
+  padding: 15px;
+  color: black;
+  font-size: 17px
 }
 
-.App-title {
-  font-size: 1.5em;
+.row {
+  background-color: blue;
+  height: 45px;
+  padding: 10px;
+
+}
+button{
+  display:inline-flex;
+  height: 30px;
+  width: 30px;
+  border: none;
+  align-content: center;
+  text-align: center;
+  font-size: 17px;
+  font-style: bold;
+  font-family: 'Arial';
+  color: blue;
+  padding: 7px;
+  margin: 7px;
+  cursor: pointer;
+  background-color: #33ff00;
+}
+
+.title {
+  font-size: 15px;
+  font-family: "Arial"
 }
 
 .App-intro {
