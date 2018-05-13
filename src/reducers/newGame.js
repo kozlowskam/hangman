@@ -3,6 +3,7 @@ import { randomWord } from '../lib/game'
 
 const word = randomWord()
 
+
 export default (state = word, action) => {
   switch (action.type) {
   case 'NEW_GAME':

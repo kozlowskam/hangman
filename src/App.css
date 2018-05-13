@@ -8,7 +8,7 @@ body {
 }
 
 .App-logo {
-  height: 50px;
+  height: 70px;
 }
 
 .App-header {
@@ -20,9 +20,11 @@ body {
 }
 
 .row {
-  background-color: blue;
-  height: 45px;
-  padding: 10px;
+  background-color: white;
+  margin-top: 25px;
+  height: 50px;
+  padding: 7px;
+  align-content: center;
 
 }
 button{
@@ -34,6 +36,22 @@ button{
   text-align: center;
   font-size: 17px;
   font-style: bold;
+  font-family: 'Arial';
+  color: blue;
+  padding: 7px;
+  margin: 7px;
+  cursor: pointer;
+  background-color: #33ff00;
+}
+.button2{
+  display:inline-flex;
+  height: 50px;
+  width: 70px;
+  border: none;
+  align-content: center;
+  text-align: center;
+  font-size: 17px;
+  font-weight: bold;
   font-family: 'Arial';
   color: blue;
   padding: 7px;

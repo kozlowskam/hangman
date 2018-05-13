@@ -5,11 +5,12 @@ button.NewGameButton {
   border: none;
   text-align: center;
   font-size: 21px;
-  font-style: bold;
+  font-weight: bold;
   font-family: 'Arial';
   color: blue;
   padding: 11px;
-  margin-left: 50px;
+  margin-left: 150px;
+  align-content: center;
   cursor: pointer;
   background-color: #33ff00;
 

@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux';
 import { newGame, makeGuess } from './actions/game'
-import { randomWord, showGuess, wrongGuessCount } from './lib/game'
+import { randomWord, showGuess, wrongGuessCount, isWinner,wrongGuessLimit } from './lib/game'
 import NewGameButton from './components/NewGameButton';
+import InputForm from './components/InputForm';
 import Title from './components/Title';
 import './App.css';
 
@@ -15,20 +16,19 @@ class App extends Component {
     guesses: PropTypes.arrayOf(PropTypes.string).isRequired
   }
 
-  ClickLetter = () => {
-    this.props.makeGuess()
-    }
 
-  ClickLetterA =() => {
-   this.props.makeGuess('a')
- }
- ClickLetterB =() => {
-  this.props.makeGuess('b')
-}
+   GameOver = () => {
+    if (isWinner(this.props.word, this.props.guesses))
+          return <div className="row"><h3 className="Title">YOU WON!</h3></div>
+    if (wrongGuessLimit(this.props.word, this.props.guesses))
+          return <div className="row"><h3 className="Title">You are not a GENIUS ...the answer was {this.props.word}</h3></div>
+    if (wrongGuessCount(this.props.word, this.props.guesses) === 5)
+          return <div className="row"><h3 className="Title">Think! You have 1 chance left!</h3></div>
+    else
+          return <div className="row"><h3 className="Title">You have only 6 chances!</h3></div>
+      }
 
-  NewGameClick = () => {
-    this.props.newGame()
-}
+
 
   render() {
 
@@ -38,45 +38,19 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <h1 className="Title">Welcome to HangMan</h1>
+          <h1 className="Title">Welcome to HangMan</h1><img src="Hman_icon.png" className="App-logo" alt="" />
         </header>
-      <div className="row">
-        <button onClick={this.ClickLetterA}>A</button>
-        <button onClick={this.ClickLetterB}>B</button>
-        <button onClick={this.ClickLetter}>C</button>
-        <button onClick={this.ClickLetter}>D</button>
-        <button onClick={this.ClickLetter}>E</button>
-        <button onClick={this.ClickLetter}>F</button>
-        <button onClick={this.ClickLetter}>G</button>
-        <button onClick={this.ClickLetter}>H</button>
-        <button onClick={this.ClickLetter}>I</button>
-        <button onClick={this.ClickLetter}>J</button></div>
-     <div className="row">
-        <button onClick={this.ClickLetter}>K</button>
-        <button onClick={this.ClickLetter}>L</button>
-        <button onClick={this.ClickLetter}>M</button>
-        <button onClick={this.ClickLetter}>N</button>
-        <button onClick={this.ClickLetter}>O</button>
-        <button onClick={this.ClickLetter}>P</button>
-        <button onClick={this.ClickLetter}>Q</button>
-        <button onClick={this.ClickLetter}>R</button>
-        <button onClick={this.ClickLetter}>S</button>
-        <button onClick={this.ClickLetter}>T</button></div>
-     <div className="row">
-     <label onClick={this.ClickLetter}><input name="guess" value="a"/> A</label>
-  <label><input type="radio" name="letter" value="b"/> B</label>
-  <label><input type="radio" name="letter" value="c"/> C</label>
-        <button onClick={this.ClickLetter}>U</button>
-        <button onClick={this.ClickLetter}>V</button>
-        <button onClick={this.ClickLetter}>W</button>
-        <button onClick={this.ClickLetter}>X</button>
-        <button onClick={this.ClickLetter}>Y</button>
-        <button onClick={this.ClickLetter}>Z</button></div>
-    <NewGameButton onClick={this.NewGameClick}/>
 
-<h1>{ showGuess(this.props.word, this.props.guesses) }</h1>
-<h1>Wrong Guess Count: {wrongGuessCount(this.props.word, this.props.guesses)}</h1>
-<h1>Guesses: {guesses.join(", ")}</h1>
+
+    <NewGameButton />
+    <InputForm />
+
+
+<h1 className="Title">{ showGuess(this.props.word, this.props.guesses) }</h1>
+<h2 className="Title">Wrong Guesses: {wrongGuessCount(this.props.word, this.props.guesses)} </h2>
+<h2 className="Title">Your Guesses: {guesses.join(", ")}</h2>
+
+<this.GameOver/>
       </div>
     );
   }
@@ -88,4 +62,4 @@ return {
   guesses: state.guesses
 }}
 
-export default connect(mapStateToProps, { newGame, makeGuess, showGuess })(App)
+export default connect(mapStateToProps, { makeGuess, showGuess, wrongGuessCount })(App)

@@ -11,7 +11,8 @@ export const newGame = () => {
   }}
 
 
-export const makeGuess = () => {
+export const makeGuess = (guess) => {
   return {
-    type: 'MAKE_GUESS'
+    type: 'MAKE_GUESS',
+    guess
   }}

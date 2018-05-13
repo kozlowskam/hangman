@@ -2,7 +2,7 @@ h1.Title {
   font-family: 'Arial';
   font-size: 31px;
   text-align: center;
-  color: black;
+  color: blue;
 
 }
 
@@ -11,5 +11,13 @@ h2.Title {
   font-size: 27px;
   text-align: center;
   color: blue;
+
+}
+
+h3.Title {
+  font-family: 'Arial';
+  font-size: 25px;
+  text-align: center;
+  color: #33ff00;
 
 }
