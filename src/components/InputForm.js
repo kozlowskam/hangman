@@ -11,7 +11,7 @@ export class InputForm extends PureComponent {
     makeGuess: PropTypes.func.isRequired,
     guess: PropTypes.string.isRequired,
   }
-
+  
   handleSubmit = (event) => {
     if(event) event.preventDefault();
     const [input] = event.target.children

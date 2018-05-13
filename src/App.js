@@ -23,9 +23,12 @@ class App extends Component {
     if (wrongGuessLimit(this.props.word, this.props.guesses))
           return <div className="row"><h3 className="Title">You are not a GENIUS ...the answer was {this.props.word}</h3></div>
     if (wrongGuessCount(this.props.word, this.props.guesses) === 5)
-          return <div className="row"><h3 className="Title">Think! You have 1 chance left!</h3></div>
+          return <div className="row"><h3 className="Title">Think! You have 1 chance left!</h3>
+          <InputForm /></div>
     else
-          return <div className="row"><h3 className="Title">You have only 6 chances!</h3></div>
+          return <div className="row"><h3 className="Title">You have only 6 chances!</h3>
+          <InputForm /></div>
+
       }
 
 
@@ -40,16 +43,11 @@ class App extends Component {
         <header className="App-header">
           <h1 className="Title">Welcome to HangMan</h1><img src="Hman_icon.png" className="App-logo" alt="" />
         </header>
-
-
     <NewGameButton />
-    <InputForm />
-
 
 <h1 className="Title">{ showGuess(this.props.word, this.props.guesses) }</h1>
 <h2 className="Title">Wrong Guesses: {wrongGuessCount(this.props.word, this.props.guesses)} </h2>
 <h2 className="Title">Your Guesses: {guesses.join(", ")}</h2>
-
 <this.GameOver/>
       </div>
     );
